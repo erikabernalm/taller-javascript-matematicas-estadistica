@@ -75,6 +75,26 @@ function calcularAlturaTrianguloEscaleno(lado1, lado2ybase, lado3) {
 	}
 }
 
+// Desafío: calcular la altura sin decimales de un triángulo escaleno (todos sus lados son distintos) o false en caso de que los parámetros recibidos no cumplan los requisitos del triángulo escaleno.
+
+// export function solution(lado1, lado2, lado3) {
+//   const semiperimetro = (lado1 + lado2 + lado3) / 2;
+//   if (lado2 == lado1 && lado2 == lado3 && lado1 == lado3 || lado2 == lado1 && lado2 != lado3 && lado1 != lado3 || lado2 == lado3 && lado2 != lado1 && lado1 != lado3 || lado2 != lado1 && lado2 != lado3 && lado1 == lado3) {
+//     return false;
+//   } else {
+//     return Math.floor((2 / lado1) * (Math.sqrt(semiperimetro * (semiperimetro - lado1) * (semiperimetro - lado2) * (semiperimetro - lado3))));
+//   }
+// }
+
+function trianguloEscaleno(lado1, lado2, lado3) {
+  const semiperimetro = (lado1 + lado2 + lado3) / 2;
+  if (lado2 == lado1 && lado2 == lado3 && lado1 == lado3 || lado2 == lado1 && lado2 != lado3 && lado1 != lado3 || lado2 == lado3 && lado2 != lado1 && lado1 != lado3 || lado2 != lado1 && lado2 != lado3 && lado1 == lado3) {
+    return false;
+  } else {
+    return Math.floor((2 / lado1) * (Math.sqrt(semiperimetro * (semiperimetro - lado1) * (semiperimetro - lado2) * (semiperimetro - lado3))));
+  }
+}
+
 console.groupEnd('Triangulo')
 
 // Math en JavaScript
