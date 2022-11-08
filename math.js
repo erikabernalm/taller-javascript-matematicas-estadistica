@@ -66,6 +66,15 @@ function calcularAlturaTrianguloIsosceles(lado1, base) {
 	}
 }
 
+function calcularAlturaTrianguloEscaleno(lado1, lado2ybase, lado3) {
+	const semiperimetro = (lado1 + lado2ybase + lado3) / 2;
+	if (lado1 == lado2ybase && lado1 == lado3 && lado2ybase == lado3 || lado1 == lado2ybase && lado1 != lado3 && lado2ybase != lado3 || lado1 == lado3 && lado1 != lado2ybase && lado2ybase != lado3 || lado1 != lado2ybase && lado1 != lado3 && lado2ybase == lado3) {
+		console.warn('Este no es un triángulo escaleno');
+	} else {
+		return ((2 / lado2ybase) * (Math.sqrt(semiperimetro * (semiperimetro - lado1) * (semiperimetro - lado2ybase) * (semiperimetro - lado3))));
+	}
+}
+
 console.groupEnd('Triangulo')
 
 // Math en JavaScript
