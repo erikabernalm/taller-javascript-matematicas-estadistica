@@ -139,3 +139,34 @@ function calcularPrecioConDescuento() {
 
 	pResult.innerText = 'El nuevo precio con descuento es $' + newPrice;
 }
+
+
+// Desafío: encuentra el ID
+
+const users = []; // Array de objetos
+users.push({
+	id: 123,
+	name: 'Juan'
+});
+users.push({
+	id: 456,
+	name: 'Ana'
+});
+
+function solution(users, id) {
+
+	function isIdInArray(arrayElement) {
+		return arrayElement.id == id;
+	}
+
+	const idInArray = users.find(isIdInArray); 
+
+	if (idInArray) {
+		return idInArray.name;
+	} else {
+		return false;
+	}
+}
+
+solution(users, 456); // Ana
+solution(users, 999); // false
