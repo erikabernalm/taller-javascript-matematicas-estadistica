@@ -1,0 +1,14 @@
+// Calculando el promedio
+function calcularPromedio(lista) {
+	let sumaLista = 0; // contador
+
+	for (let i = 0; i < lista.length; i++) {
+		sumaLista = sumaLista + lista[i];
+	}
+
+	const promedio = sumaLista / lista.length;
+	console.log(promedio);
+	return promedio;
+}
+
+// calcularPromedio([1,2,3,4,5]);
