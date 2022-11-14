@@ -46,3 +46,16 @@ function calcularPromedio(lista) {
 	console.log(promedio);
 	return promedio;
 }
+
+// Reto: función para saber si una lista es par o impar
+// Uso del operador módulo (resto o residuo) %
+function esPar(lista) {
+	if (lista.length % 2 === 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+esPar([1,5,6,7]) // true
+esPar([1,5,6,7,9]) // false
