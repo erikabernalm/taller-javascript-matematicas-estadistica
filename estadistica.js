@@ -43,19 +43,85 @@ function calcularPromedio(lista) {
 	const sumaLista = lista.reduce(sumarTodosLosElementos);
 
 	const promedio = sumaLista / lista.length;
-	console.log(promedio);
+	// console.log(promedio);
 	return promedio;
 }
 
 // Reto: función para saber si una lista es par o impar
 // Uso del operador módulo (resto o residuo) %
+// function esPar(lista) {
+// 	if (lista.length % 2 === 0) {
+// 		return true;
+// 	} else {
+// 		return false;
+// 	}
+// }
+
+// esPar([1,5,6,7]) // true
+// esPar([1,5,6,7,9]) // false
+
+
+// Otra forma de hacerlo
+
+// function esPar(lista) {
+// 	if (lista.length % 2) {
+// 		return false;
+// 	} else {
+// 		return true;
+// 	}
+// }
+
+// esPar([1,2,5]) // false
+// esPar([1,2,5,4]) // true
+
+// Todo esto se puede simplicar mucho más
+
 function esPar(lista) {
-	if (lista.length % 2 === 0) {
-		return true;
-	} else {
-		return false;
-	}
+	return !(lista.length % 2);
 }
 
-esPar([1,5,6,7]) // true
-esPar([1,5,6,7,9]) // false
+esPar([1,2,5,4,6]) // false
+esPar([1,2,5,4]) // true
+
+function esImpar(lista) {
+	return lista.length % 2;
+}
+
+esImpar([1,2,5,4]) // 0
+esImpar([1,2,5]) // 1
+
+// Calculando la mediana en una lista impar y par
+
+function calcularMediana(lista) {
+	const listaEsPar = esPar(lista);
+
+	if (listaEsPar) {
+		// Primer forma de hacerlo
+		// const indexMitad1ListaPar = (lista.length / 2) - 1;
+		// const indexMitad2ListaPar = lista.length / 2;
+		// const listaMitades = [lista[indexMitad1ListaPar], lista[indexMitad2ListaPar]];
+		// calcularPromedio(listaMitades)
+
+		// Segunda forma
+		// const mitad1ListaPar = lista[(lista.length / 2) - 1];
+		// const mitad2ListaPar = lista[lista.length / 2];
+		// const listaMitades = [mitad1ListaPar, mitad2ListaPar];
+		// calcularPromedio(listaMitades)
+
+		// Tercer forma
+		const indexMitad1ListaPar = (lista.length / 2) - 1;
+		const indexMitad2ListaPar = lista.length / 2;
+		const listaMitades = [];
+		listaMitades.push(lista[indexMitad1ListaPar]);
+		listaMitades.push(lista[indexMitad2ListaPar]);
+		
+		const medianaListaPar = calcularPromedio(listaMitades);
+		return medianaListaPar;
+	} else {
+		const indexMitadListaImpar = Math.floor(lista.length / 2);
+		const medianaListaImpar = lista[indexMitadListaImpar];
+		console.log(indexMitadListaImpar);
+		console.log(medianaListaImpar);
+		return medianaListaImpar;
+	}
+}
