@@ -92,14 +92,15 @@ esImpar([1,2,5]) // 1
 
 // Calculando la mediana en una lista impar y par
 
-function calcularMediana(lista) {
+function calcularMediana(listaDesordenada) {
+	const lista = ordenarLista(listaDesordenada);
 	const listaEsPar = esPar(lista);
 
 	if (listaEsPar) {
 		// Primer forma de hacerlo
-		// const indexMitad1ListaPar = (lista.length / 2) - 1;
+		// const indexMitad1ListaPar = (lista.length / 2) - 1; // Le resta una posición
 		// const indexMitad2ListaPar = lista.length / 2;
-		// const listaMitades = [lista[indexMitad1ListaPar], lista[indexMitad2ListaPar]];
+		// const listaMitades = [lista[indexMitad1ListaPar], lista[indexMitad2ListaPar]]; // Estamos creando un array a partir de 2 elementos de otro array
 		// calcularPromedio(listaMitades)
 
 		// Segunda forma
@@ -124,4 +125,27 @@ function calcularMediana(lista) {
 		console.log(medianaListaImpar);
 		return medianaListaImpar;
 	}
+}
+
+// Método sort
+
+function ordenarLista(listaDesordenada) {
+	function ordenarListaSort(valorAcumulado, nuevoValor) {
+		// if (valorAcumulado > nuevoValor) { // Ordena la lista de menor a mayor
+		// 	return 1;
+		// } else if (valorAcumulado == nuevoValor) {
+		// 	return 0;
+		// } else if (valorAcumulado < nuevoValor) {
+		// 	return -1;
+		// }
+
+		return valorAcumulado - nuevoValor; // Ordena la lista de menor a mayor
+		// return nuevoValor - valorAcumulado; // Ordena la lista de mayor a menor
+	}
+
+	const lista = listaDesordenada.sort(ordenarListaSort);
+	// const lista = listaDesordenada.sort((a,b) => a-b); // Ordena la lista de menor a mayor
+	// const lista = listaDesordenada.sort((a,b) => b-a); // Ordena la lista de mayor a menor
+
+	return lista;
 }
