@@ -152,6 +152,24 @@ function ordenarLista(listaDesordenada) {
 
 // Calculando la moda: objetos a partir de arrays
 
+// function calcularModa(lista) {
+// 	const listaCount = {};
+
+// 	for (let i = 0; i < lista.length; i++) {
+// 		const elemento = lista[i];
+
+// 		if (listaCount[elemento]) {
+// 			listaCount[elemento] += 1;
+// 		} else {
+// 			listaCount[elemento] = 1;
+// 		}
+// 	}
+
+// 	console.log(listaCount);
+// }
+
+// Calculando la moda: arrays a partir de objetos
+
 function calcularModa(lista) {
 	const listaCount = {};
 
@@ -165,5 +183,34 @@ function calcularModa(lista) {
 		}
 	}
 
-	console.log(listaCount);
+	// console.log(listaCount);
+
+	const listaArray = Object.entries(listaCount);
+	const listaBiOrdenada = ordenarListaBidimensional(listaArray, 1);
+	const listaBiOrdenadaMaxNumber = listaBiOrdenada[listaBiOrdenada.length - 1];
+	// console.log({listaCount, listaArray, listaBiOrdenada, listaBiOrdenadaMaxNumber});
+	// console.log('La moda es: ' + listaBiOrdenadaMaxNumber[0]);
+	const moda = listaBiOrdenadaMaxNumber[0];
+	return moda;
+}
+
+
+// Ordenar una lista de listas o lista bidimensional
+
+// function ordenarListaBidimensional(listaBiDesordenada) {
+// 	function ordenarListaBiSort(valorAcumulado, nuevoValor) {
+// 		return valorAcumulado[1] - nuevoValor[1]; // Ordena la lista de menor a mayor
+// 	}
+
+// 	const lista = listaBiDesordenada.sort(ordenarListaBiSort);
+// 	return lista;
+// }
+
+function ordenarListaBidimensional(listaBiDesordenada,i) {
+	function ordenarListaBiSort(valorAcumulado, nuevoValor) {
+		return valorAcumulado[i] - nuevoValor[i]; // Ordena la lista de menor a mayor
+	}
+
+	const lista = listaBiDesordenada.sort(ordenarListaBiSort);
+	return lista;
 }
