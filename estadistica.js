@@ -214,3 +214,28 @@ function ordenarListaBidimensional(listaBiDesordenada,i) {
 	const lista = listaBiDesordenada.sort(ordenarListaBiSort);
 	return lista;
 }
+
+// Reto: Transformar Objetos en Arrays
+
+const obj = {
+  123: 'Juanito Alcachofa',
+  456: 'Juanita Alcaparra'
+};
+
+function solution(obj) {
+	const array = Object.entries(obj);
+	const arrayFinal = [];
+	array.forEach((arr) => {
+		arrayFinal.push({
+			id: arr[0],
+			name: arr[1]
+		})
+	})
+	// console.log({
+	// 	array, 
+	// 	arrayFinal
+	// });
+	return arrayFinal;
+}
+
+solution(obj);
