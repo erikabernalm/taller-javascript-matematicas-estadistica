@@ -282,11 +282,66 @@ const sumOfCredits = credits.reduce(
 
 const promedioPonderadoNotasConCreditos = sumOfNotesWithCredit / sumOfCredits;
 
-console.log({
-	notes,
-	notesWithCredit,
-	sumOfNotesWithCredit,
-	credits,
-	sumOfCredits,
-	promedioPonderadoNotasConCreditos
-});
+// console.log({
+// 	notes,
+// 	notesWithCredit,
+// 	sumOfNotesWithCredit,
+// 	credits,
+// 	sumOfCredits,
+// 	promedioPonderadoNotasConCreditos
+// });
+
+
+// Calculando el rango medio
+
+const mobilesPrices = [
+	{
+		brand: "Samsung",
+		price: 50 
+	},
+	{
+		brand: "Samsung",
+		price: 150 
+	},
+	{
+		brand: "Samsung",
+		price: 550
+	},
+	{
+		brand: "Samsung",
+		price: 40 
+	},
+	{
+		brand: "Samsung",
+		price: 230
+	},
+	{
+		brand: "Samsung",
+		price: 50
+	}
+];
+
+function calcularRangoMedio(objetcList) {
+	const mobilePriceList = objetcList.map(function (mobilesPricesObject) {
+		return mobilesPricesObject.price;
+	});
+	
+	const mobilePriceOrderedList = ordenarLista(mobilePriceList);
+	const highValue = mobilePriceOrderedList[mobilePriceOrderedList.length - 1];
+	const lowValue = mobilePriceOrderedList[0];
+	const sumOfHighValueWithLowValue = highValue + lowValue;
+	const rangoMedio = sumOfHighValueWithLowValue / 2;
+
+	// console.log({
+	// 	mobilePriceList,
+	// 	mobilePriceOrderedList,
+	// 	highValue,
+	// 	lowValue,
+	// 	sumOfHighValueWithLowValue,
+	// 	rangoMedio
+	// });
+	return `Los teléfonos de precio medio tendrían un precio de alrededor de $${rangoMedio}`;
+}
+
+calcularRangoMedio(mobilesPrices); // 'Los teléfonos de precio medio tendrían un precio de alrededor de $295'
+console.log(calcularRangoMedio(mobilesPrices)); // Los teléfonos de precio medio tendrían un precio de alrededor de $295
