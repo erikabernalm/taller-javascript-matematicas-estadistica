@@ -95,8 +95,8 @@ Estadistica.esImpar = function esImpar(lista) {
 // Calculando la mediana en una lista impar y par
 
 Estadistica.calcularMediana = function calcularMediana(listaDesordenada) {
-	const lista = ordenarLista(listaDesordenada);
-	const listaEsPar = esPar(lista);
+	const lista = Estadistica.ordenarLista(listaDesordenada);
+	const listaEsPar = Estadistica.esPar(lista);
 
 	if (listaEsPar) {
 		// Primer forma de hacerlo
@@ -118,7 +118,7 @@ Estadistica.calcularMediana = function calcularMediana(listaDesordenada) {
 		listaMitades.push(lista[indexMitad1ListaPar]);
 		listaMitades.push(lista[indexMitad2ListaPar]);
 		
-		const medianaListaPar = calcularPromedio(listaMitades);
+		const medianaListaPar = Estadistica.calcularPromedio(listaMitades);
 		return medianaListaPar;
 	} else {
 		const indexMitadListaImpar = Math.floor(lista.length / 2);
@@ -188,7 +188,7 @@ Estadistica.calcularModa = function calcularModa(lista) {
 	// console.log(listaCount);
 
 	const listaArray = Object.entries(listaCount);
-	const listaBiOrdenada = ordenarListaBidimensional(listaArray, 1);
+	const listaBiOrdenada = Estadistica.ordenarListaBidimensional(listaArray, 1);
 	const listaBiOrdenadaMaxNumber = listaBiOrdenada[listaBiOrdenada.length - 1];
 	// console.log({listaCount, listaArray, listaBiOrdenada, listaBiOrdenadaMaxNumber});
 	// console.log('La moda es: ' + listaBiOrdenadaMaxNumber[0]);
@@ -328,7 +328,7 @@ Estadistica.calcularRangoMedio = function calcularRangoMedio(objetcList) {
 		return mobilesPricesObject.price;
 	});
 	
-	const mobilePriceOrderedList = ordenarLista(mobilePriceList);
+	const mobilePriceOrderedList = Estadistica.ordenarLista(mobilePriceList);
 	const highValue = mobilePriceOrderedList[mobilePriceOrderedList.length - 1];
 	const lowValue = mobilePriceOrderedList[0];
 	const sumOfHighValueWithLowValue = highValue + lowValue;
