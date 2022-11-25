@@ -1,3 +1,5 @@
+const Estadistica = {};
+
 // Calculando el promedio
 // function calcularPromedio(lista) {
 // 	let sumaLista = 0; // contador
@@ -16,7 +18,7 @@
 
 // Método reduce
 
-function calcularPromedio(lista) {
+Estadistica.calcularPromedio = function calcularPromedio(lista) {
 	// Primer forma de hacerlo
 	// let sumaLista = 0; // contador
 
@@ -76,23 +78,23 @@ function calcularPromedio(lista) {
 
 // Todo esto se puede simplicar mucho más
 
-function esPar(lista) {
+Estadistica.esPar = function esPar(lista) {
 	return !(lista.length % 2);
 }
 
-esPar([1,2,5,4,6]) // false
-esPar([1,2,5,4]) // true
+// esPar([1,2,5,4,6]) // false
+// esPar([1,2,5,4]) // true
 
-function esImpar(lista) {
+Estadistica.esImpar = function esImpar(lista) {
 	return lista.length % 2;
 }
 
-esImpar([1,2,5,4]) // 0
-esImpar([1,2,5]) // 1
+// esImpar([1,2,5,4]) // 0
+// esImpar([1,2,5]) // 1
 
 // Calculando la mediana en una lista impar y par
 
-function calcularMediana(listaDesordenada) {
+Estadistica.calcularMediana = function calcularMediana(listaDesordenada) {
 	const lista = ordenarLista(listaDesordenada);
 	const listaEsPar = esPar(lista);
 
@@ -129,7 +131,7 @@ function calcularMediana(listaDesordenada) {
 
 // Método sort
 
-function ordenarLista(listaDesordenada) {
+Estadistica.ordenarLista = function ordenarLista(listaDesordenada) {
 	function ordenarListaSort(valorAcumulado, nuevoValor) {
 		// if (valorAcumulado > nuevoValor) { // Ordena la lista de menor a mayor
 		// 	return 1;
@@ -170,7 +172,7 @@ function ordenarLista(listaDesordenada) {
 
 // Calculando la moda: arrays a partir de objetos
 
-function calcularModa(lista) {
+Estadistica.calcularModa = function calcularModa(lista) {
 	const listaCount = {};
 
 	for (let i = 0; i < lista.length; i++) {
@@ -206,7 +208,7 @@ function calcularModa(lista) {
 // 	return lista;
 // }
 
-function ordenarListaBidimensional(listaBiDesordenada,i) {
+Estadistica.ordenarListaBidimensional = function ordenarListaBidimensional(listaBiDesordenada,i) {
 	function ordenarListaBiSort(valorAcumulado, nuevoValor) {
 		return valorAcumulado[i] - nuevoValor[i]; // Ordena la lista de menor a mayor
 	}
@@ -321,7 +323,7 @@ const mobilesPrices = [
 	}
 ];
 
-function calcularRangoMedio(objetcList) {
+Estadistica.calcularRangoMedio = function calcularRangoMedio(objetcList) {
 	const mobilePriceList = objetcList.map(function (mobilesPricesObject) {
 		return mobilesPricesObject.price;
 	});
@@ -343,5 +345,5 @@ function calcularRangoMedio(objetcList) {
 	return `Los teléfonos de precio medio tendrían un precio de alrededor de $${rangoMedio}`;
 }
 
-calcularRangoMedio(mobilesPrices); // 'Los teléfonos de precio medio tendrían un precio de alrededor de $295'
-console.log(calcularRangoMedio(mobilesPrices)); // Los teléfonos de precio medio tendrían un precio de alrededor de $295
+// calcularRangoMedio(mobilesPrices); // 'Los teléfonos de precio medio tendrían un precio de alrededor de $295'
+// console.log(calcularRangoMedio(mobilesPrices)); // Los teléfonos de precio medio tendrían un precio de alrededor de $295
