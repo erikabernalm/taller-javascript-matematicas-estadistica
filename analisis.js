@@ -83,3 +83,15 @@ for (persona of salarios) {
 
 console.log({empresas});
 
+// Salarios empresariales
+// Calcular la Mediana de salarios de una empresa en un año en específico
+
+function medianaEmpresaYear(nombre, year) {
+	if (!empresas[nombre]) {
+		console.warn('La empresa no existe');
+	} else if (!empresas[nombre][year]) {
+		console.warn('La empresa no dio salarios ese año');
+	} else {
+		return Estadistica.calcularMediana(empresas[nombre][year]);
+	}
+}
