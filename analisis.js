@@ -95,3 +95,35 @@ function medianaEmpresaYear(nombre, year) {
 		return Estadistica.calcularMediana(empresas[nombre][year]);
 	}
 }
+
+// Proyección de salarios por empresas
+
+function proyeccionPorEmpresa(nombre) {
+  if (!empresas[nombre]) {
+    console.warn("La empresa no existe");
+  } else {
+    const empresaYears = Object.keys(empresas[nombre]);
+    const listaMedianaYears = empresaYears.map((year) => {
+      return medianaEmpresaYear(nombre, year);
+    });
+
+    let porcentajesCrecimiento = []; // Contador y/o objetivo
+
+    for (let i = 1; i < listaMedianaYears.length; i++) {
+      const salarioActual = listaMedianaYears[i];
+      const salarioAnterior = listaMedianaYears[i - 1];
+      const crecimiento = salarioActual - salarioAnterior;
+      const porcentajeCrecimiento = crecimiento / salarioAnterior;
+      porcentajesCrecimiento.push(porcentajeCrecimiento);
+      // console.log({salarioActual, salarioAnterior, crecimiento, porcentajeCrecimiento, porcentajesCrecimiento});
+    }
+
+    const medianaPorcentajesCrecimiento = Estadistica.calcularMediana(porcentajesCrecimiento);
+    const ultimaMediana = listaMedianaYears[listaMedianaYears.length - 1];
+    const aumento = ultimaMediana * medianaPorcentajesCrecimiento;
+    const nuevaMediana = ultimaMediana + aumento;
+
+    console.log({empresaYears, listaMedianaYears, porcentajesCrecimiento, medianaPorcentajesCrecimiento, ultimaMediana, aumento, nuevaMediana});
+    return nuevaMediana;
+  }
+}
