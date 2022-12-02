@@ -127,3 +127,31 @@ function proyeccionPorEmpresa(nombre) {
     return nuevaMediana;
   }
 }
+
+// Top 10% de salarios
+ 
+// Análisis general
+function medianaGeneral() {
+	// const nombres = salarios.map(persona => persona.name);
+	const listaMedianas = salarios.map(persona => medianaPorPersona(persona.name));
+	// const medianaPorCadaNombre = nombres.map(nombre => medianaPorPersona(nombre));
+	// console.log({nombres, medianaPorCadaNombre});
+	
+	const mediana = Estadistica.calcularMediana(listaMedianas);
+	// console.log({listaMedianas, mediana});
+	return mediana;
+}
+
+// Top 10% 
+function medianaTop10() {
+	const listaMedianas = salarios.map(persona => medianaPorPersona(persona.name));
+	const medianasOrdenadas = Estadistica.ordenarLista(listaMedianas);	
+	const cantidad = listaMedianas.length / 10;
+	const limite = listaMedianas.length - cantidad;
+	const top10 = medianasOrdenadas.slice(limite, medianasOrdenadas.length);
+	// const top10 = medianasOrdenadas.splice(limite, medianasOrdenadas.length);
+	const medianaTop10 = Estadistica.calcularMediana(top10);
+	
+	// console.log({listaMedianas, medianasOrdenadas, cantidad, limite, top10, medianaTop10});		
+	return medianaTop10;
+}
